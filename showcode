@@ -1,0 +1,40 @@
+#!/bin/bash
+
+function show_manual() {
+    echo "Usage: internsctl [options] [arguments]"
+    echo "Options:"
+    echo "    --help          Display this help and exit"
+    echo "    --version       Display version information and exit"
+    echo "    apply-function   Apply a function to a list of data items"
+    echo ""
+    echo "Arguments:"
+    echo "    input_data.txt    The input data file"
+    echo "    function.py       The file containing the function to be applied"
+    echo "    output_data.txt   The output data file where the result of the function will be stored"
+}
+
+function show_version() {
+    echo "internsctl v0.1.0"
+}
+
+if [ $# -eq 0 ]; then
+    show_manual
+    exit 1
+fi
+
+case "$1" in
+    --help)
+        show_manual
+        ;;
+    --version)
+        show_version
+        ;;
+    apply-function)
+        # Your code for the 'apply-function' command goes here
+        ;;
+    *)
+        echo "Error: Unknown option or command '$1'"
+        show_manual
+        exit 1
+        ;;
+esac
